@@ -19,7 +19,7 @@ function Accordion({ title, children, defaultOpen = false }: AccordionProps) {
       <button
         type="button"
         onClick={toggleAccordion}
-        className="flex w-full items-center justify-between px-4 py-3 text-left text-sm font-medium text-gray-900 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+        className="relative z-10 flex w-full items-center justify-between px-4 py-3 text-left text-sm font-medium text-gray-900 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-0 rounded-lg"
         aria-expanded={isOpen}
       >
         <span>{title}</span>
