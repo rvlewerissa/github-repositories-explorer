@@ -2,6 +2,8 @@
 
 A React application that integrates with GitHub API, allowing users to search for up to 5 users with a username similar to the value entered in a text input. Upon selecting a user, the application displays all repositories for that user.
 
+🚀 **[Live Preview](https://rvlewerissa.github.io/github-repositories-explorer)**
+
 ## Features
 
 - **Limited results**: Display maximum of 5 matching users
@@ -18,6 +20,7 @@ A React application that integrates with GitHub API, allowing users to search fo
 - **UI Framework**: React
 - **Styling**: Tailwind CSS
 - **State Management / Fetching Library**: TanStack Query
+- **Testing Framework**: Jest with react-testing-library and MSW (Mock Service Worker)
 
 ## Getting Started
 
