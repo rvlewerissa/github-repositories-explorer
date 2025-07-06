@@ -4,11 +4,17 @@ interface RepositoryCardProps {
   title: string;
   description: string | null;
   stars: number;
+  url: string;
 }
 
-function RepositoryCard({ title, description, stars }: RepositoryCardProps) {
+function RepositoryCard({ title, description, stars, url }: RepositoryCardProps) {
   return (
-    <div className="rounded-lg border border-gray-200 bg-white p-4">
+    <a 
+      href={url} 
+      target="_blank" 
+      rel="noopener noreferrer" 
+      className="block rounded-lg border border-gray-200 bg-white p-4 transition-colors hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+    >
       <div className="flex items-start justify-between">
         <div className="flex-1">
           <h3 className="text-sm font-semibold text-gray-900">{title}</h3>
@@ -19,7 +25,7 @@ function RepositoryCard({ title, description, stars }: RepositoryCardProps) {
           {stars}
         </div>
       </div>
-    </div>
+    </a>
   );
 }
 

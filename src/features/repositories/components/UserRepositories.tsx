@@ -37,6 +37,7 @@ function UserRepositories({ username }: UserRepositoriesProps) {
           title={repo.name}
           description={repo.description}
           stars={repo.stargazers_count}
+          url={repo.html_url}
         />
       ))}
     </div>
