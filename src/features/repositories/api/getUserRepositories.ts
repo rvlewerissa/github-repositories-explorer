@@ -22,6 +22,9 @@ export async function getUserRepositories(username: string): Promise<GitHubRepos
     const repositories: GitHubRepository[] = await response.json();
     return repositories;
   } catch (error) {
+    if (error instanceof Error) {
+      throw error;
+    }
     throw new Error('Network error occurred while fetching repositories');
   }
 }

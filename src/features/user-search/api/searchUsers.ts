@@ -18,6 +18,9 @@ export async function searchUsers(query: string): Promise<GitHubUserSearchRespon
     const searchResult: GitHubUserSearchResponse = await response.json();
     return searchResult;
   } catch (error) {
+    if (error instanceof Error) {
+      throw error;
+    }
     throw new Error('Network error occurred while searching users');
   }
 }

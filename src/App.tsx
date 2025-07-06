@@ -2,7 +2,7 @@ import { useState } from 'react';
 import Layout from '@/shared/components/layout/Layout';
 import SearchInput from '@/features/user-search/components/SearchInput';
 import Accordion from '@/shared/components/commons/Accordion';
-import RepositoryCard from '@/features/repositories/components/RepositoryCard';
+import UserRepositories from '@/features/repositories/components/UserRepositories';
 import { useSearchUsers } from '@/features/user-search/hooks/useSearchUsers';
 import SkeletonLoader from '@/shared/components/commons/SkeletonLoader';
 
@@ -15,11 +15,6 @@ function App() {
     setSearchQuery(query);
   };
 
-  const repositories = [
-    { title: 'react', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.', stars: 228000 },
-    { title: 'vue', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.', stars: 207000 },
-    { title: 'angular', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.', stars: 95000 },
-  ];
 
   return (
     <Layout>
@@ -53,16 +48,7 @@ function App() {
         <div className='mt-3 space-y-4'>
           {searchResults?.items.map((user) => (
             <Accordion key={user.login} title={user.login}>
-              <div className="space-y-3">
-                {repositories.map((repo) => (
-                  <RepositoryCard
-                    key={repo.title}
-                    title={repo.title}
-                    description={repo.description}
-                    stars={repo.stars}
-                  />
-                ))}
-              </div>
+              <UserRepositories username={user.login} />
             </Accordion>
           ))}
         </div>
