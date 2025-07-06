@@ -2,6 +2,7 @@ import { useState } from 'react';
 import Layout from '@/shared/components/layout/Layout';
 import SearchInput from '@/features/user-search/components/SearchInput';
 import Accordion from '@/shared/components/commons/Accordion';
+import RepositoryCard from '@/features/repositories/components/RepositoryCard';
 
 function App() {
   const [searchQuery, setSearchQuery] = useState('');
@@ -16,6 +17,12 @@ function App() {
     'gaearon',
     'addyosmani',
     'sindresorhus',
+  ];
+
+  const repositories = [
+    { title: 'react', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.', stars: 228000 },
+    { title: 'vue', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.', stars: 207000 },
+    { title: 'angular', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.', stars: 95000 },
   ];
 
   return (
@@ -37,7 +44,16 @@ function App() {
       <div className='mt-3 space-y-4'>
         {users.map((username) => (
           <Accordion key={username} title={username}>
-            <p className='text-gray-600 text-sm'>Repositories for {username}</p>
+            <div className="space-y-3">
+              {repositories.map((repo) => (
+                <RepositoryCard
+                  key={repo.title}
+                  title={repo.title}
+                  description={repo.description}
+                  stars={repo.stars}
+                />
+              ))}
+            </div>
           </Accordion>
         ))}
       </div>
