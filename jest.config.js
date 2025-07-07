@@ -11,6 +11,7 @@ export default {
   moduleNameMapper: {
     '^@/(.*)$': '<rootDir>/src/$1',
   },
+  moduleDirectories: ['node_modules', '<rootDir>/src'],
   collectCoverageFrom: [
     'src/**/*.{ts,tsx}',
     '!src/**/*.d.ts',
@@ -24,6 +25,10 @@ export default {
         jsx: 'react-jsx',
         esModuleInterop: true,
         types: ['jest', '@testing-library/jest-dom'],
+        baseUrl: '.',
+        paths: {
+          '@/*': ['./src/*'],
+        },
       },
     }],
   },
