@@ -1,4 +1,5 @@
 import '@testing-library/jest-dom';
+import 'cross-fetch/polyfill';
 import { server } from './server';
 
 // Start MSW server before all tests

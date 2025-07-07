@@ -1,16 +1,14 @@
 export default {
-  preset: 'ts-jest',
-  testEnvironment: 'jsdom',
+  testEnvironment: 'jest-fixed-jsdom',
+  preset: 'ts-jest/presets/default-esm',
+  extensionsToTreatAsEsm: ['.ts', '.tsx'],
   roots: ['<rootDir>/src'],
   testMatch: [
     '**/__tests__/**/*.{js,jsx,ts,tsx}',
     '**/*.(test|spec).{js,jsx,ts,tsx}'
   ],
-  transform: {
-    '^.+\\.(ts|tsx)$': 'ts-jest',
-  },
   setupFilesAfterEnv: ['<rootDir>/src/test/setup.ts'],
-  moduleNameMapping: {
+  moduleNameMapper: {
     '^@/(.*)$': '<rootDir>/src/$1',
   },
   collectCoverageFrom: [
@@ -19,10 +17,13 @@ export default {
     '!src/main.tsx',
     '!src/vite-env.d.ts',
   ],
-  extensionsToTreatAsEsm: ['.ts', '.tsx'],
-  globals: {
-    'ts-jest': {
+  transform: {
+    '^.+\\.(ts|tsx)$': ['ts-jest', {
       useESM: true,
-    },
+      tsconfig: {
+        jsx: 'react-jsx',
+        esModuleInterop: true,
+      },
+    }],
   },
 };
